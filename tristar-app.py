@@ -2,14 +2,24 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 from flask import flash, redirect, render_template, request
+from flask_mail import Mail, Message
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, DateField, BooleanField, EmailField, TelField, RadioField, validators
+from wtforms import StringField, IntegerField, DateField, EmailField, TelField, RadioField, validators
 
 app = Flask(__name__)
 
 GMAIL_PASSWORD = os.getenv('GMAIL_PASSWORD')
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
+
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'tanyushashilina1@gmail.com'
+app.config['MAIL_PASSWORD'] = GMAIL_PASSWORD
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
+mail = Mail(app)
 
 class ReservationForm(FlaskForm):
     guest_name = StringField('Guest name:', validators=[validators.DataRequired(), validators.Length(min=2, max=35)])
@@ -43,6 +53,14 @@ def contacts():
 def reservation():
     form = ReservationForm()
     if form.validate_on_submit():
+        msg = Message('Reservation request', sender='tanyushashilina1@gmail.com', recipients=['tanyushashilina1@gmail.com'])
+        msg.body = (f'You got a new reservation request. Here is the guest data:\n'
+                   f'Name: {form.guest_name.data}\nEmail: {form.guest_email.data}\nPhone number: {form.guest_phone.data}\n'
+                   f'Arrival: {form.arrival.data}\nDeparture: {form.departure.data}\n'
+                   f'Among guests: {form.adults.data} adults, {form.children.data} children\n'
+                   f'Pets: {form.pets.data}\nRoom type: {form.is_smoking.data}\n'
+                   f'Please, contact the guest as soon as possible!')
+        mail.send(msg)
         return redirect('/success')
     return render_template('reservation.html', form=form)
 
