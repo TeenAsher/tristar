@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+</head>
+<body>
+    <h1>TRISTAR INN XPRESS</h1>
+    <h3>Reservation</h3>
+    <a href="{{ url_for('index') }}">Home</a><br><br>
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.guest_name.label }} {{ form.guest_name }}
+        {% if form.guest_name.errors %}
+            <ul class="errors">
+            {% for error in form.guest_name.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br><br>
+        {{ form.csrf_token }}
+        {{ form.guest_email.label }} {{ form.guest_email }}
+        {% if form.guest_email.errors %}
+            <ul class="errors">
+            {% for error in form.guest_email.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br><br>
+        {{ form.csrf_token }}
+        {{ form.guest_phone.label }} {{ form.guest_phone }}
+        {% if form.guest_phone.errors %}
+            <ul class="errors">
+            {% for error in form.guest_phone.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br><br>
+        {{ form.csrf_token }}
+        {{ form.arrival.label }} {{ form.arrival }}
+        {% if form.arrival.errors %}
+            <ul class="errors">
+            {% for error in form.arrival.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br><br>
+        {{ form.csrf_token }}
+        {{ form.departure.label }} {{ form.departure }}
+        {% if form.departure.errors %}
+            <ul class="errors">
+            {% for error in form.departure.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br><br>
+        {{ form.csrf_token }}
+        {{ form.adults.label }} {{ form.adults }}
+        {% if form.adults.errors %}
+            <ul class="errors">
+            {% for error in form.adults.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br><br>
+        {{ form.csrf_token }}
+        {{ form.children.label }} {{ form.children }}
+        {% if form.children.errors %}
+            <ul class="errors">
+            {% for error in form.children.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br><br>
+        {{ form.csrf_token }}
+        {{ form.pets.label }} {{ form.pets }}
+        {% if form.pets.errors %}
+            <ul class="errors">
+            {% for error in form.pets.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br>
+        {{ form.csrf_token }}
+        {{ form.is_smoking.label }} {{ form.is_smoking }}
+        {% if form.is_smoking.errors %}
+            <ul class="errors">
+            {% for error in form.is_smoking.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
