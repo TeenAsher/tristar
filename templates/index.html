@@ -1,24 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% extends "base.html" %}
     <title>Tristar Inn Xpress</title>
 </head>
 <body>
-    <h1>TRISTAR INN XPRESS</h1>
-    <h3>Welcome to the Tristar Inn Xpress - Motel and Bar</h3>
-    <a href="{{ url_for('hotel') }}">Hotel</a>
-    <a href="{{ url_for('bar') }}">Bar</a>
-    <a href="{{ url_for('contacts') }}">Contacts</a>
-    <a href="{{ url_for('reservation') }}">Reservation</a>
-    <div>
-        <h4>Hotel & Rooms</h4>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero modi cumque tempore harum, eius sequi, eaque, cupiditate pariatur in minus quia? Culpa, esse ullam? Inventore fugit provident eius ex odit!</p>
-        <h4>Bar</h4>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis reprehenderit accusantium, necessitatibus atque consequatur cumque debitis, modi, nulla optio maiores fuga quaerat magni minus error consequuntur expedita animi cum aliquid.</p>
-        <script src="static/index.js"></script>
-    </div>    
+  {% block content %}
+  <div class="container">
+  <main>
+    <div class="px-6 pt-5 my-5 text-center border-bottom rounded-3" style="background-color: rgb(121, 155, 186);">
+      <h1 class="display-5 fw-bold" style="color: rgb(255, 255, 255); text-shadow: 1px 1px 1px rgb(255, 0, 0), 2px 2px 1px rgb(255, 0, 0)">Tristar Inn Xpress</h1>
+      <div class="col-lg-6 mx-auto" style="color: rgb(255, 255, 255);">
+        <p class="lead mb-2 fw-bold">Welcome to the Tristar Inn Xpress - Motel and Bar</p>
+        <p class="lead mb-4 fw-bold">An original Route 66 business!</p>
+      </div><br>
+      <div class="d-grid gap-4 col-4 mx-auto">
+        <a href="{{ url_for('reservation') }}" class="btn btn-danger" type="button"><img width="48" height="48" src="https://img.icons8.com/ios-filled/48/ffffff/filled-star.png" alt="star--v1"/><img width="20" height="20" src="https://img.icons8.com/ios-filled/48/dc3545/filled-star.png"/> Reserve directly on site</a>
+        <a href="https://www.expedia.com/Tucumcari-Hotels-Tristar-Inn-Xpress.h524618.Hotel-Information" data-bs-toggle="tooltip" title="Expedia.com" class="btn btn-warning" type="button"><img width="48" height="48" src="https://img.icons8.com/color/48/expedia.png" alt="expedia"/><img width="20" height="20" src="https://img.icons8.com/ios-filled/48/ffc107/filled-star.png"/> Reserve on Expedia.com</a>
+        <a href="https://www.booking.com/hotel/us/tristar-inn-xpress.html" data-bs-toggle="tooltip" title="Booking.com" class="btn" type="button" style="background-color: rgb(10, 22, 53); color: white;"><img class="rounded-3" width="43" height="43" src="static/images/book.jpg" alt="booking"/><img width="20" height="20" src="https://img.icons8.com/ios-filled/48/0a1635/filled-star.png"/> Reserve on Booking.com</a>
+      </div><br>
+    </div>
+    <div class="album py-5">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="static/images/first2.png" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <div class="card-body">
+                <p class="card-text">Affordable spacious rooms, king and queen size beds, satellite TV & 4 HBO and 3 Cinemax channels, Free Wi-Fi, outdoor seasonal pool and an on site well stocked bar.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ url_for('hotel') }}" type="button" class="btn btn-sm btn-outline-secondary">Explore</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="static/images/second2.png" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <div class="card-body">
+                <p class="card-text">Enjoy a night out at the Caravan Xpress Bar. The largest selection of drinks in town, beer, wine, pizza, billiards and even lottery tickets. Let us host your event or party!</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ url_for('bar') }}" type="button" class="btn btn-sm btn-outline-secondary">Explore</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="static/images/third2.png" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <div class="card-body">
+                <p class="card-text"> We have our own on-line reservation system, so you can book directly on our site! If you have questions or need additional information - ask us via email. We will respond you ASAP.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{{ url_for('reservation') }}" type="button" class="btn btn-sm btn-outline-secondary">Reserve</a>
+                    <a href="{{ url_for('contacts') }}" type="button" class="btn btn-sm btn-outline-secondary">Contacts</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+</main>
+</div>
+  {% endblock %}
 </body>
 </html>

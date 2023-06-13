@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% extends "base.html" %}
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <main>
+            <section class="position-relative overflow-hidden p-3 p-md-5 m-md-3">
+                <div class="p-5 mb-4">
+                    <div class="container-fluid py-5">
+                        <h1 class="display-5 fw-bold" style="color: rgb(255, 255, 255); text-shadow: 1px 1px 1px rgb(0, 13, 255), 2px 2px 1px rgb(0, 13, 255);">Contacts</h1>
+                    </div>
+                </div>
+            </section>
+            <div class="container marketing">
+            <div class="row align-items-md-stretch">
+                <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light rounded-3">
+                        <h3 class="display-7 fw-bold">Tristar Inn Xpress</h3><br>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1302 W Route 66 BlvdTucumcari, NM 88401</li>
+                            <li class="list-group-item">Phone: +1 (575) 461-3140</li>
+                            <li class="list-group-item">Fax: +1 (575) 461-3143</li>
+                            <li class="list-group-item">Email: info@tristarxpress.com</li>
+                        </ul>
+                        <br>
+                        <p class="fw-bold">Follow us on Facebook!</p><a href="https://www.facebook.com/TristarInnXpress"><img width="48" height="48" src="https://img.icons8.com/color/48/facebook.png" alt="facebook"/></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light rounded-3">
+                        <h3 class="display-7 fw-bold">Map & Directions</h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6337.092006017286!2d-103.743446368324!3d35.171796125746795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x871b59d2ad2672ef%3A0x163fcd2fffd1fba7!2sTRISTAR%20INN%20XPRESS!5e0!3m2!1sen!2sus!4v1685402193119!5m2!1sen!2sus" width="400" height="400" style="border: 2px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        </main>
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -2,106 +2,138 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation</title>
+    {% extends "base.html" %}
 </head>
 <body>
-    <h1>TRISTAR INN XPRESS</h1>
-    <h3>Reservation</h3>
-    <a href="{{ url_for('index') }}">Home</a><br><br>
-    <form method="POST">
-        {{ form.csrf_token }}
-        {{ form.guest_name.label }} {{ form.guest_name }}
-        {% if form.guest_name.errors %}
-            <ul class="errors">
-            {% for error in form.guest_name.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <br><br>
-        {{ form.csrf_token }}
-        {{ form.guest_email.label }} {{ form.guest_email }}
-        {% if form.guest_email.errors %}
-            <ul class="errors">
-            {% for error in form.guest_email.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <br><br>
-        {{ form.csrf_token }}
-        {{ form.guest_phone.label }} {{ form.guest_phone }}
-        {% if form.guest_phone.errors %}
-            <ul class="errors">
-            {% for error in form.guest_phone.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <br><br>
-        {{ form.csrf_token }}
-        {{ form.arrival.label }} {{ form.arrival }}
-        {% if form.arrival.errors %}
-            <ul class="errors">
-            {% for error in form.arrival.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <br><br>
-        {{ form.csrf_token }}
-        {{ form.departure.label }} {{ form.departure }}
-        {% if form.departure.errors %}
-            <ul class="errors">
-            {% for error in form.departure.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <br><br>
-        {{ form.csrf_token }}
-        {{ form.adults.label }} {{ form.adults }}
-        {% if form.adults.errors %}
-            <ul class="errors">
-            {% for error in form.adults.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <br><br>
-        {{ form.csrf_token }}
-        {{ form.children.label }} {{ form.children }}
-        {% if form.children.errors %}
-            <ul class="errors">
-            {% for error in form.children.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <br><br>
-        {{ form.csrf_token }}
-        {{ form.pets.label }} {{ form.pets }}
-        {% if form.pets.errors %}
-            <ul class="errors">
-            {% for error in form.pets.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <br>
-        {{ form.csrf_token }}
-        {{ form.is_smoking.label }} {{ form.is_smoking }}
-        {% if form.is_smoking.errors %}
-            <ul class="errors">
-            {% for error in form.is_smoking.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
+    {% block content %}
+    <div class="container">
+        <main>
+        <section class="position-relative overflow-hidden p-3 p-md-5 m-md-3 rounded-3">
+            <div class="p-5 mb-4">
+                <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold" style="color: rgb(255, 255, 255); text-shadow: 1px 1px 1px red, 2px 2px 1px red;">Reserve directly</h1>
+            <p class="col-md-8 fs-4"  style="color: rgb(255, 255, 255); ;">You may send your reservation request directly, using the form below. We will respond you as soon as possible</p>
+        </div>
+        </div>
+        </section>
+        <div class="mx-auto col-md-7 col-lg-9">
+        <div class="card rounded-3" style="width: 50rem; box-shadow: 3px;">
+            <div class="card-header text-center">Fill the form to reserve the room</div><br>
+            <div class="card-body">
+            <form class="row g-3 needs-validation" method="POST" novalidate>
+                {{ form.csrf_token }}
+                    <div class="col-md-9">
+                    {% if form.guest_name.errors %}
+                        <ul class="errors">
+                        {% for error in form.guest_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <h5>{{ form.guest_name.label }}</h5>
+                    {{ form.guest_name(class="form-control", placeholder="Enter your name") }}
+                    <div class="valid-feedback">
+                        Good!
+                    </div>
+                </div>
+                    <div class="col-sm-9">
+                    {% if form.guest_email.errors %}
+                        <ul class="errors">
+                        {% for error in form.guest_email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <h5>{{ form.guest_email.label }}</h5>
+                    {{ form.guest_email(class="form-control", placeholder="Enter your email") }}
+                </div>
+                    <div class="col-sm-9">
+                    {% if form.guest_phone.errors %}
+                        <ul class="errors">
+                        {% for error in form.guest_phone.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                <h5>{{ form.guest_phone.label }}</h5>
+                    {{ form.guest_phone(class="form-control", placeholder="+1 (xxx) xxx-xxxx") }}
+                </div>
+                    <div class="col-sm-9">
+                    {% if form.arrival.errors %}
+                        <ul class="errors">
+                        {% for error in form.arrival.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                <h5>{{ form.arrival.label }}</h5>
+                    {{ form.arrival(class="form-control") }}
+                </div>
+                    <div class="col-sm-9">
+                    {% if form.departure.errors %}
+                        <ul class="errors">
+                        {% for error in form.departure.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                <h5>{{ form.departure.label }}</h5>
+                    {{ form.departure(class="form-control") }}
+                </div>
+                    <div class="col-sm-9">
+                    {% if form.adults.errors %}
+                        <ul class="errors">
+                        {% for error in form.adults.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                <h5>{{ form.adults.label }}</h5>
+                    {{ form.adults(class="form-control", placeholder="1") }}
+                </div>
+                    <div class="col-sm-9">
+                    {% if form.children.errors %}
+                        <ul class="errors">
+                        {% for error in form.children.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                <h5>{{ form.children.label }}</h5>
+                    {{ form.children(class="form-control", placeholder="0") }}
+                </div>
+                    <div class="col-sm-9">
+                    {% if form.pets.errors %}
+                        <ul class="errors">
+                        {% for error in form.pets.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                <h5>{{ form.pets.label }}</h5>
+                    {{ form.pets }}
+                </div>
+                    <div class="col-sm-9">
+                    {% if form.room_type.errors %}
+                        <ul class="errors">
+                        {% for error in form.room_type.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                <h5>{{ form.room_type.label }}</h5>
+                    {{ form.room_type }}
+                </div>
+                <div class="col-sm-9">
+                <button type="submit" class="btn btn-primary">Send request &raquo;</button><br>
+                </div>
+                </div>
+            </form><br><br>
+    </div>
+</div>
+</div>
+</main>     
+</div>
+    {% endblock %}
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% extends "base.html" %}
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <main>
+            <section class="position-relative overflow-hidden p-3 p-md-5 m-md-3 rounded-3" style="background-color: rgb(121, 155, 186);">
+                    <div class="container-fluid py-5">
+                        <h1 class="display-5 fw-bold" style="color: rgb(255, 255, 255); text-shadow: 1px 1px 1px rgb(255, 0, 0), 2px 2px 1px rgb(255, 183, 0);">Hotel & Guestrooms</h1>
+                        <p class="col-md-8 fs-4"  style="color: rgb(255, 255, 255); ;">Affordable rooms at a landmark on historic Route 66!</p>
+                    </div>
+            </section>
+            <div class="mx-auto col-md-7 col-lg-9">
+            <div class="card mb-3" style="max-width: 1000px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="static/images/pool.jpeg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Hotel & Guestrooms</h5>
+                        <p class="card-text">Whatever you need, we've got it all and for an affordable price. Spacious guestrooms with king and queen size beds, recliners, satellite TV with premium channels, free Wi-Fi, parking, on-line reservations and an outdoor pool available during the summer months. We're also close to area attractions, entertainment and shopping.</p>
+                        <p class="card-text">Within short walking distance to the New Mexico Route 66 Museum, Route 66 Monument, Tucumcari Convention Center, Quay County Fairgrounds, Mesalands Community College and the North American Wind Research and Technology Center.</p>
+                        <p class="card-text"><small class="text-muted">Sit back and relax, unwind, decompress, enjoy the pool on a hot summer afternoon and imbibe a cocktail at the Caravan.</small></p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid gap-4 col-4 mx-auto">
+                        <a href="{{ url_for('reservation') }}" class="btn btn-sm btn-outline-danger">Reserve now</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>      
+        </main>
+    </div>
+    {% endblock %}
+</body>
+</html>
